@@ -178,7 +178,7 @@ fi
 
 if [ $MODE == 2 ] || [ $MODE == 3 ]
 then
-	echo -e	"		\033[1;32mOK : $CNT_OK\033[1;0m, \033[1;31m	KO : $CNT_KO\033[1;0m, \033[1;31m	MAX : $CNT_Error"
+	echo -e	"		\033[1;32mOK : $CNT_OK\033[1;0m, \033[1;31m	KO : $CNT_KO\033[1;0m, \033[1;31m	Error : $CNT_Error"
 	echo
 	echo
 	echo -e "		\033[42;1;37mlog files : ./push_swap_auto_checker/OK\033[0m"
@@ -189,7 +189,7 @@ then
 	echo
 elif [ $MODE == 1 ]
 then
-	echo -e	"		\033[1;32mAVG : $AVG\033[1;0m, \033[1;32m	MIN : $MIN  at case_$MIN_IDX\033[1;0m, \033[1;31m	Error : $MAX  at case_$MAX_IDX"
+	echo -e	"		\033[1;32mAVG : $AVG\033[1;0m, \033[1;32m	MIN : $MIN  at case_$MIN_IDX\033[1;0m, \033[1;31m	MAX : $MAX  at case_$MAX_IDX"
 	echo
 	echo
 	echo -e "		\033[42;1;37mlog files : ./push_swap_auto_checker/OK\033[0m"
