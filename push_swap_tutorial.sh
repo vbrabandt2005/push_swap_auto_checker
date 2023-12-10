@@ -286,9 +286,6 @@ then
 
 	make bonus
 
-	curl -O https://cdn.intra.42.fr/document/document/23048/checker_Mac
-	chmod 755 checker_Mac
-
 	CNT_KO=0
 	CNT_Error=0
 	CNT_OK=0
