@@ -1,7 +1,8 @@
 #!/bin/bash
 
 echo -e "\033[1;37m----- [1. ONE NBR TEST] [2. RANGE TEST] -----\033[0m"
-echo -e "\033[1;37m----  [3. RANGE TEST WITH BONUS_CHECKER] ----\033[0m"
+echo -e "\033[1;37m----- [3. RANGE TEST WITH BONUS_CHECKER] ----\033[0m"
+echo -e "\033[1;37m----- [4. REMOVE LOGS]                  -----\033[0m"
 echo -n "SELECT MODE : "
 
 read MODE
@@ -194,6 +195,10 @@ then
 	echo
 	echo -e "		\033[42;1;37mlog files : ./push_swap_auto_checker/OK\033[0m"
 	echo
+elif [ $MODE == 4 ]
+then
+	rm -rf ./push_swap_auto_checker
+	rm -f checker_Mac	
 else
 	echo
 	echo -e "		\033[41;1;37mWrong MODE\033[0m"
