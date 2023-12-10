@@ -24,15 +24,11 @@ then
 	MIN_IDX=0
 	MAX_IDX=0
 
-	if [ ! -d push_swap_auto_checker ]
-	then
-		mkdir push_swap_auto_checker
-		mkdir push_swap_auto_checker/KO
-		mkdir push_swap_auto_checker/OK
-		mkdir push_swap_auto_checker/Error
-	fi
-
-	rm -f ./push_swap_auto_checker/*/testcase*                                                                                                                                 
+	mkdir push_swap_auto_checker
+	rm -rf ./push_swap_auto_checker/*
+	mkdir push_swap_auto_checker/KO
+	mkdir push_swap_auto_checker/OK
+	mkdir push_swap_auto_checker/Error
 
 	for (( var=1; var<=$COUNT; var++ ))
 	do
@@ -49,7 +45,7 @@ then
 		then
 			echo -e "\033[31mError"
 			echo -e "$VALUE\033[0m"
-			echo $ARGS > ./push_swap_auto_checker/Error/testcase_Error_$NUM_$var
+			echo $ARGS > ./push_swap_auto_checker/Error/testcase_Error_$NUM\_$var
 			((TOTAL = $TOTAL + $VALUE))
 			[ $MAX -ge $VALUE ] && MAX=$MAX || MAX_IDX=$var
 			[ $VALUE -ge $MIN ] && MIN=$MIN || MIN_IDX=$var
@@ -58,7 +54,7 @@ then
 		else
 			echo -e "\033[32m     OK"
 			echo -e "$VALUE\033[0m"
-			echo $ARGS > ./push_swap_auto_checker/OK/testcase_OK_$NUM_$var
+			echo $ARGS > ./push_swap_auto_checker/OK/testcase_OK_$NUM\_$var
 			((TOTAL = $TOTAL + $VALUE))
 			[ $MAX -ge $VALUE ] && MAX=$MAX || MAX_IDX=$var
 			[ $VALUE -ge $MIN ] && MIN=$MIN || MIN_IDX=$var
@@ -86,15 +82,11 @@ then
 	CNT_Error=0
 	CNT_OK=0
 
-	if [ ! -d push_swap_auto_checker ]
-	then
-		mkdir push_swap_auto_checker
-		mkdir push_swap_auto_checker/KO
-		mkdir push_swap_auto_checker/OK
-		mkdir push_swap_auto_checker/Error
-	fi
-
-	rm -f ./push_swap_auto_checker/*/testcase*
+	mkdir push_swap_auto_checker
+	rm -rf ./push_swap_auto_checker/*
+	mkdir push_swap_auto_checker/KO
+	mkdir push_swap_auto_checker/OK
+	mkdir push_swap_auto_checker/Error
 
 	for (( var=$min_nbr; var<=$max_nbr; var++ ))
 	do
@@ -145,15 +137,11 @@ then
 	CNT_Error=0
 	CNT_OK=0
 
-	if [ ! -d push_swap_auto_checker ]
-	then
-		mkdir push_swap_auto_checker
-		mkdir push_swap_auto_checker/KO
-		mkdir push_swap_auto_checker/OK
-		mkdir push_swap_auto_checker/Error
-	fi
-
-	rm -f ./push_swap_auto_checker/*/testcase*
+	mkdir push_swap_auto_checker
+	rm -rf ./push_swap_auto_checker/*
+	mkdir push_swap_auto_checker/KO
+	mkdir push_swap_auto_checker/OK
+	mkdir push_swap_auto_checker/Error
 
 	for (( var=$min_nbr; var<=$max_nbr; var++ ))
 	do
