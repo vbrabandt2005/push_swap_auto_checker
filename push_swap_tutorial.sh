@@ -6,7 +6,7 @@ echo -e "\033[1;37m#############################################\033[0m"
 echo
 echo -e "\033[1;37m----- [1. ONE NBR TEST] [2. RANGE TEST] -----\033[0m"
 echo -e "\033[1;37m----- [3. RANGE TEST WITH BONUS_CHECKER] ----\033[0m"
-echo -e "\033[1;37m----- [4. REMOVE LOGS]                  -----\033[0m"
+echo -e "\033[1;37m----- [4. REMOVE LOGS]  [5. MINUS TEST] -----\033[0m"
 echo -n "SELECT MODE : "
 
 read MODE
@@ -179,9 +179,63 @@ then
 			((CNT_OK++))
 		fi
 	done
+elif [ $MODE == 5 ]
+then
+	echo -n "Enter min num : "
+
+	read min_nbr
+
+	echo -n "Enter max num : "
+
+	read max_nbr
+
+	make re
+
+	curl -O https://cdn.intra.42.fr/document/document/23048/checker_Mac
+	chmod 755 checker_Mac
+
+	CNT_KO=0
+	CNT_Error=0
+	CNT_OK=0
+
+	mkdir push_swap_auto_checker
+	rm -rf ./push_swap_auto_checker/*
+	mkdir push_swap_auto_checker/KO
+	mkdir push_swap_auto_checker/OK
+	mkdir push_swap_auto_checker/Error
+
+	((var = $max_nbr - $min_nbr))
+	if [ $var -le 5000 ]
+	then
+		ARGS="$(seq $min_nbr $max_nbr | sort -R | xargs)"
+		VALUE="$(./push_swap "$ARGS" | ./checker_Mac "$ARGS")"
+	else
+		ARGS="$(seq $min_nbr $max_nbr | sort -R | xargs | tr -s "\n" " ")"
+		VALUE="$(./push_swap "$ARGS" | ./checker_Mac "$ARGS")"
+	fi
+
+	if [ -z $VALUE ]
+	then
+		echo -e "\033[31mError"
+		echo -e "$var\033[0m"
+		echo $ARGS > ./push_swap_auto_checker/Error/testcase_Error_$var
+		((CNT_Error++))
+	elif [ $VALUE == "KO" ]
+	then
+		echo -e "\033[31mKO"
+		echo -e "$var\033[0m"
+		echo $ARGS > ./push_swap_auto_checker/KO/testcase_KO_$var
+		((CNT_KO++))
+	elif [ $VALUE == "OK" ]
+	then
+		echo -e "\033[32mOK"
+		echo -e "$var\033[0m"
+		echo $ARGS > ./push_swap_auto_checker/OK/testcase_OK_$var
+		((CNT_OK++))
+	fi
 fi	
 
-if [ $MODE == 2 ] || [ $MODE == 3 ]
+if [ $MODE == 2 ] || [ $MODE == 3 ] || [ $MODE == 5 ]
 then
 	echo -e	"		\033[1;32mOK : $CNT_OK\033[1;0m, \033[1;31m	KO : $CNT_KO\033[1;0m, \033[1;31m	Error : $CNT_Error"
 	echo
