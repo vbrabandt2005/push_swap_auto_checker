@@ -5,7 +5,6 @@ echo -e "\033[1;37m########### [PUSH SWAP TUTORIAL] ############\033[0m"
 echo -e "\033[1;37m#############################################\033[0m"
 echo
 echo -e "\033[1;37m----- [1. ONE NBR TEST] [2. RANGE TEST] -----\033[0m"
-echo -e "\033[1;37m----- [1. ONE NBR TEST] [2. RANGE TEST] -----\033[0m"
 echo -e "\033[1;37m----- [3. RANGE TEST WITH BONUS_CHECKER] ----\033[0m"
 echo -e "\033[1;37m----- [4. REMOVE LOGS]                  -----\033[0m"
 echo -n "SELECT MODE : "
