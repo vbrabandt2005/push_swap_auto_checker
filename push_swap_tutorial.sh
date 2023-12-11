@@ -296,7 +296,7 @@ then
 	mkdir push_swap_auto_checker/OK
 	mkdir push_swap_auto_checker/Error
 
-	VALUE="$( echo -e "sb\nrb\nrrb\npa\npb\nsa\nra\nrra\npb\npa" | ./checker "1" )"
+	VALUE="$( echo -e "sb\nrb\nrrb\npa\nrrr\nss\nrr\npb\nsa\nra\nrra\npb\nrrr\nss\nrr\npa" | ./checker "1" )"
 
 	if [ -z $VALUE ]
 	then
