@@ -449,11 +449,11 @@ then
 		((CNT_Error++))
 	elif [ $VALUE == "KO" ]
 	then
-		echo $ARGS > ./push_swap_tutorial/KO/testcase_KO_stack_B_TEST
+		echo $ARGS > ./push_swap_tutorial/OK/testcase_OK_stack_B_TEST
 		((CNT_KO++))
 	elif [ $VALUE == "OK" ]
 	then
-		echo $ARGS > ./push_swap_tutorial/OK/testcase_OK_stack_B_TEST
+		echo $ARGS > ./push_swap_tutorial/KO/testcase_KO_stack_B_TEST
 		((CNT_OK++))
 	fi
 	echo -e	"		\n\n\033[1;31mOK : $CNT_OK\033[1;0m, \033[1;32m	KO : $CNT_KO\033[1;0m, \033[1;31m	Error : $CNT_Error"
