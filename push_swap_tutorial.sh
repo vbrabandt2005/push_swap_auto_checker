@@ -15,6 +15,8 @@ if [ $MODE == 1 ]
 then
 	make re
 
+	norminette
+
 	curl -O https://cdn.intra.42.fr/document/document/23048/checker_Mac
 	chmod 755 checker_Mac
 
@@ -114,17 +116,14 @@ then
 	
 	if [ -z $VALUE ] || [ $VALUE == "Error" ]
 	then
-		echo -e "\033[31mError"
 		echo $ARGS > ./push_swap_tutorial/Error/testcase_Error_MINUS_TEST
 		((CNT_Error++))
 	elif [ $VALUE == "KO" ]
 	then
-		echo -e "\033[31mKO"
 		echo $ARGS > ./push_swap_tutorial/KO/testcase_KO_MINUS_TEST
 		((CNT_KO++))
 	elif [ $VALUE == "OK" ]
 	then
-		echo -e "\033[32mOK"
 		echo $ARGS > ./push_swap_tutorial/OK/testcase_OK_MINUS_TEST
 		((CNT_OK++))
 	fi
@@ -140,17 +139,14 @@ then
 	VALUE="$(./push_swap "$ARGS" | ./checker_Mac "$ARGS")"
 	if [ -z $VALUE ] || [ $VALUE == "Error" ]
 	then
-		echo -e "\033[32mOK\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/OK/testcase_OK_BAD_MAX_INT_TEST
 		((CNT_OK++))
 	elif [ $VALUE == "KO" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_BAD_MAX_INT_TEST
 		((CNT_KO++))
 	elif [ $VALUE == "OK" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_BAD_MAX_INT_TEST
 		((CNT_KO++))
 	fi
@@ -159,17 +155,14 @@ then
 	VALUE="$(./push_swap "$ARGS" | ./checker_Mac "$ARGS")"
 	if [ -z $VALUE ] || [ $VALUE == "Error" ]
 	then
-		echo -e "\033[32mOK\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/OK/testcase_OK_BAD_MIN_INT_TEST
 		((CNT_OK++))
 	elif [ $VALUE == "KO" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_BAD_MIN_INT_TEST
 		((CNT_KO++))
 	elif [ $VALUE == "OK" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_BAD_MIN_INT_TEST
 		((CNT_KO++))
 	fi
@@ -178,17 +171,14 @@ then
 	VALUE="$(./push_swap "$ARGS" | ./checker_Mac "$ARGS")"
 	if [ -z $VALUE ] || [ $VALUE == "Error" ]
 	then
-		echo -e "\033[31mError\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/Error/testcase_Error_FINE_MAX_INT_TEST
 		((CNT_Error++))
 	elif [ $VALUE == "KO" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_FINE_MAX_INT_TEST
 		((CNT_KO++))
 	elif [ $VALUE == "OK" ]
 	then
-		echo -e "\033[32mOK\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/OK/testcase_OK_FINE_MAX_INT_TEST
 		((CNT_OK++))
 	fi
@@ -197,17 +187,14 @@ then
 	VALUE="$(./push_swap "$ARGS" | ./checker_Mac "$ARGS")"
 	if [ -z $VALUE ] || [ $VALUE == "Error" ]
 	then
-		echo -e "\033[31mError\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/Error/testcase_Error_FINE_MIN_INT_TEST
 		((CNT_Error++))
 	elif [ $VALUE == "KO" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_FINE_MIN_INT_TEST
 		((CNT_KO++))
 	elif [ $VALUE == "OK" ]
 	then
-		echo -e "\033[32mOK\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/OK/testcase_OK_FINE_MIN_INT_TEST
 		((CNT_OK++))
 	fi
@@ -224,17 +211,14 @@ then
 	VALUE="$(./push_swap "$ARGS" | ./checker_Mac "$ARGS")"
 	if [ -z $VALUE ] || [ $VALUE == "Error" ]
 	then
-		echo -e "\033[32mOK\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/OK/testcase_OK_wrong_input_test_1
 		((CNT_OK++))
 	elif [ $VALUE == "KO" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_wrong_input_test_1
 		((CNT_KO++))
 	elif [ $VALUE == "OK" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_wrong_input_test_1
 		((CNT_KO++))
 	fi
@@ -243,17 +227,14 @@ then
 	VALUE="$(./push_swap "$ARGS" | ./checker_Mac "$ARGS")"
 	if [ -z $VALUE ] || [ $VALUE == "Error" ]
 	then
-		echo -e "\033[32mOK\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/OK/testcase_OK_wrong_input_test_1
 		((CNT_OK++))
 	elif [ $VALUE == "KO" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_wrong_input_test_1
 		((CNT_KO++))
 	elif [ $VALUE == "OK" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_wrong_input_test_1
 		((CNT_KO++))
 	fi
@@ -262,17 +243,14 @@ then
 	VALUE="$(./push_swap "$ARGS" | ./checker_Mac "$ARGS")"
 	if [ -z $VALUE ] || [ $VALUE == "Error" ]
 	then
-		echo -e "\033[32mOK\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/OK/testcase_OK_wrong_input_test_1
 		((CNT_OK++))
 	elif [ $VALUE == "KO" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_wrong_input_test_1
 		((CNT_KO++))
 	elif [ $VALUE == "OK" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_wrong_input_test_1
 		((CNT_KO++))
 	fi
@@ -281,17 +259,14 @@ then
 	VALUE="$(./push_swap "$ARGS" | ./checker_Mac "$ARGS")"
 	if [ -z $VALUE ] || [ $VALUE == "Error" ]
 	then
-		echo -e "\033[32mOK\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/OK/testcase_OK_wrong_input_test_1
 		((CNT_OK++))
 	elif [ $VALUE == "KO" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_wrong_input_test_1
 		((CNT_KO++))
 	elif [ $VALUE == "OK" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_wrong_input_test_1
 		((CNT_KO++))
 	fi
@@ -300,17 +275,14 @@ then
 	VALUE="$(./push_swap "$ARGS" | ./checker_Mac "$ARGS")"
 	if [ -z $VALUE ] || [ $VALUE == "Error" ]
 	then
-		echo -e "\033[32mOK\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/OK/testcase_OK_wrong_input_test_1
 		((CNT_OK++))
 	elif [ $VALUE == "KO" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_wrong_input_test_1
 		((CNT_KO++))
 	elif [ $VALUE == "OK" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_wrong_input_test_1
 		((CNT_KO++))
 	fi
@@ -319,17 +291,14 @@ then
 	VALUE="$(./push_swap "$ARGS" | ./checker_Mac "$ARGS")"
 	if [ -z $VALUE ] || [ $VALUE == "Error" ]
 	then
-		echo -e "\033[32mOK\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/OK/testcase_OK_wrong_input_test_1
 		((CNT_OK++))
 	elif [ $VALUE == "KO" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_wrong_input_test_1
 		((CNT_KO++))
 	elif [ $VALUE == "OK" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_wrong_input_test_1
 		((CNT_KO++))
 	fi
@@ -338,17 +307,14 @@ then
 	VALUE="$(./push_swap "$ARGS" | ./checker_Mac "$ARGS")"
 	if [ -z $VALUE ] || [ $VALUE == "Error" ]
 	then
-		echo -e "\033[32mOK\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/OK/testcase_OK_wrong_input_test_1
 		((CNT_OK++))
 	elif [ $VALUE == "KO" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_wrong_input_test_1
 		((CNT_KO++))
 	elif [ $VALUE == "OK" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_wrong_input_test_1
 		((CNT_KO++))
 	fi
@@ -357,17 +323,14 @@ then
 	VALUE="$(./push_swap "$ARGS" | ./checker_Mac "$ARGS")"
 	if [ -z $VALUE ] || [ $VALUE == "Error" ]
 	then
-		echo -e "\033[32mOK\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/OK/testcase_OK_wrong_input_test_1
 		((CNT_OK++))
 	elif [ $VALUE == "KO" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_wrong_input_test_1
 		((CNT_KO++))
 	elif [ $VALUE == "OK" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_wrong_input_test_1
 		((CNT_KO++))
 	fi
@@ -376,17 +339,14 @@ then
 	VALUE="$(./push_swap "$ARGS" | ./checker_Mac "$ARGS")"
 	if [ -z $VALUE ] || [ $VALUE == "Error" ]
 	then
-		echo -e "\033[32mOK\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/OK/testcase_OK_wrong_input_test_1
 		((CNT_OK++))
 	elif [ $VALUE == "KO" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_wrong_input_test_1
 		((CNT_KO++))
 	elif [ $VALUE == "OK" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_wrong_input_test_1
 		((CNT_KO++))
 	fi
@@ -395,17 +355,14 @@ then
 	VALUE="$(./push_swap "$ARGS" | ./checker_Mac "$ARGS")"
 	if [ -z $VALUE ] || [ $VALUE == "Error" ]
 	then
-		echo -e "\033[32mOK\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/OK/testcase_OK_wrong_input_test_1
 		((CNT_OK++))
 	elif [ $VALUE == "KO" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_wrong_input_test_1
 		((CNT_KO++))
 	elif [ $VALUE == "OK" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_wrong_input_test_1
 		((CNT_KO++))
 	fi
@@ -414,17 +371,14 @@ then
 	VALUE="$(./push_swap "$ARGS" | ./checker_Mac "$ARGS")"
 	if [ -z $VALUE ] || [ $VALUE == "Error" ]
 	then
-		echo -e "\033[32mOK\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/OK/testcase_OK_wrong_input_test_1
 		((CNT_OK++))
 	elif [ $VALUE == "KO" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_wrong_input_test_1
 		((CNT_KO++))
 	elif [ $VALUE == "OK" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_wrong_input_test_1
 		((CNT_KO++))
 	fi
@@ -439,6 +393,8 @@ then
 	make re
 
 	make bonus
+
+	norminette
 
 	CNT_KO=0
 	CNT_Error=0
@@ -537,17 +493,14 @@ then
 	VALUE="$(./push_swap "$ARGS" | ./checker "$ARGS")"
 	if [ -z $VALUE ] || [ $VALUE == "Error" ]
 	then
-		echo -e "\033[32mOK\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/OK/testcase_OK_BAD_MAX_INT_TEST
 		((CNT_OK++))
 	elif [ $VALUE == "KO" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_BAD_MAX_INT_TEST
 		((CNT_KO++))
 	elif [ $VALUE == "OK" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_BAD_MAX_INT_TEST
 		((CNT_KO++))
 	fi
@@ -556,17 +509,14 @@ then
 	VALUE="$(./push_swap "$ARGS" | ./checker "$ARGS")"
 	if [ -z $VALUE ] || [ $VALUE == "Error" ]
 	then
-		echo -e "\033[32mOK\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/OK/testcase_OK_BAD_MIN_INT_TEST
 		((CNT_OK++))
 	elif [ $VALUE == "KO" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_BAD_MIN_INT_TEST
 		((CNT_KO++))
 	elif [ $VALUE == "OK" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_BAD_MIN_INT_TEST
 		((CNT_KO++))
 	fi
@@ -575,17 +525,14 @@ then
 	VALUE="$(./push_swap "$ARGS" | ./checker "$ARGS")"
 	if [ -z $VALUE ] || [ $VALUE == "Error" ]
 	then
-		echo -e "\033[31mError\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/Error/testcase_Error_FINE_MAX_INT_TEST
 		((CNT_Error++))
 	elif [ $VALUE == "KO" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_FINE_MAX_INT_TEST
 		((CNT_KO++))
 	elif [ $VALUE == "OK" ]
 	then
-		echo -e "\033[32mOK\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/OK/testcase_OK_FINE_MAX_INT_TEST
 		((CNT_OK++))
 	fi
@@ -594,17 +541,14 @@ then
 	VALUE="$(./push_swap "$ARGS" | ./checker "$ARGS")"
 	if [ -z $VALUE ] || [ $VALUE == "Error" ]
 	then
-		echo -e "\033[31mError\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/Error/testcase_Error_FINE_MIN_INT_TEST
 		((CNT_Error++))
 	elif [ $VALUE == "KO" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_FINE_MIN_INT_TEST
 		((CNT_KO++))
 	elif [ $VALUE == "OK" ]
 	then
-		echo -e "\033[32mOK\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/OK/testcase_OK_FINE_MIN_INT_TEST
 		((CNT_OK++))
 	fi
@@ -621,17 +565,14 @@ then
 	VALUE="$(./push_swap "$ARGS" | ./checker "$ARGS")"
 	if [ -z $VALUE ] || [ $VALUE == "Error" ]
 	then
-		echo -e "\033[32mOK\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/OK/testcase_OK_wrong_input_test_1
 		((CNT_OK++))
 	elif [ $VALUE == "KO" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_wrong_input_test_1
 		((CNT_KO++))
 	elif [ $VALUE == "OK" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_wrong_input_test_1
 		((CNT_KO++))
 	fi
@@ -640,17 +581,14 @@ then
 	VALUE="$(./push_swap "$ARGS" | ./checker "$ARGS")"
 	if [ -z $VALUE ] || [ $VALUE == "Error" ]
 	then
-		echo -e "\033[32mOK\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/OK/testcase_OK_wrong_input_test_1
 		((CNT_OK++))
 	elif [ $VALUE == "KO" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_wrong_input_test_1
 		((CNT_KO++))
 	elif [ $VALUE == "OK" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_wrong_input_test_1
 		((CNT_KO++))
 	fi
@@ -659,17 +597,14 @@ then
 	VALUE="$(./push_swap "$ARGS" | ./checker "$ARGS")"
 	if [ -z $VALUE ] || [ $VALUE == "Error" ]
 	then
-		echo -e "\033[32mOK\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/OK/testcase_OK_wrong_input_test_1
 		((CNT_OK++))
 	elif [ $VALUE == "KO" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_wrong_input_test_1
 		((CNT_KO++))
 	elif [ $VALUE == "OK" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_wrong_input_test_1
 		((CNT_KO++))
 	fi
@@ -678,17 +613,14 @@ then
 	VALUE="$(./push_swap "$ARGS" | ./checker "$ARGS")"
 	if [ -z $VALUE ] || [ $VALUE == "Error" ]
 	then
-		echo -e "\033[32mOK\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/OK/testcase_OK_wrong_input_test_1
 		((CNT_OK++))
 	elif [ $VALUE == "KO" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_wrong_input_test_1
 		((CNT_KO++))
 	elif [ $VALUE == "OK" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_wrong_input_test_1
 		((CNT_KO++))
 	fi
@@ -697,17 +629,14 @@ then
 	VALUE="$(./push_swap "$ARGS" | ./checker "$ARGS")"
 	if [ -z $VALUE ] || [ $VALUE == "Error" ]
 	then
-		echo -e "\033[32mOK\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/OK/testcase_OK_wrong_input_test_1
 		((CNT_OK++))
 	elif [ $VALUE == "KO" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_wrong_input_test_1
 		((CNT_KO++))
 	elif [ $VALUE == "OK" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_wrong_input_test_1
 		((CNT_KO++))
 	fi
@@ -716,17 +645,14 @@ then
 	VALUE="$(./push_swap "$ARGS" | ./checker "$ARGS")"
 	if [ -z $VALUE ] || [ $VALUE == "Error" ]
 	then
-		echo -e "\033[32mOK\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/OK/testcase_OK_wrong_input_test_1
 		((CNT_OK++))
 	elif [ $VALUE == "KO" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_wrong_input_test_1
 		((CNT_KO++))
 	elif [ $VALUE == "OK" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_wrong_input_test_1
 		((CNT_KO++))
 	fi
@@ -735,17 +661,14 @@ then
 	VALUE="$(./push_swap "$ARGS" | ./checker "$ARGS")"
 	if [ -z $VALUE ] || [ $VALUE == "Error" ]
 	then
-		echo -e "\033[32mOK\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/OK/testcase_OK_wrong_input_test_1
 		((CNT_OK++))
 	elif [ $VALUE == "KO" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_wrong_input_test_1
 		((CNT_KO++))
 	elif [ $VALUE == "OK" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_wrong_input_test_1
 		((CNT_KO++))
 	fi
@@ -754,17 +677,14 @@ then
 	VALUE="$(./push_swap "$ARGS" | ./checker "$ARGS")"
 	if [ -z $VALUE ] || [ $VALUE == "Error" ]
 	then
-		echo -e "\033[32mOK\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/OK/testcase_OK_wrong_input_test_1
 		((CNT_OK++))
 	elif [ $VALUE == "KO" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_wrong_input_test_1
 		((CNT_KO++))
 	elif [ $VALUE == "OK" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_wrong_input_test_1
 		((CNT_KO++))
 	fi
@@ -773,17 +693,14 @@ then
 	VALUE="$(./push_swap "$ARGS" | ./checker "$ARGS")"
 	if [ -z $VALUE ] || [ $VALUE == "Error" ]
 	then
-		echo -e "\033[32mOK\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/OK/testcase_OK_wrong_input_test_1
 		((CNT_OK++))
 	elif [ $VALUE == "KO" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_wrong_input_test_1
 		((CNT_KO++))
 	elif [ $VALUE == "OK" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_wrong_input_test_1
 		((CNT_KO++))
 	fi
@@ -792,17 +709,14 @@ then
 	VALUE="$(./push_swap "$ARGS" | ./checker "$ARGS")"
 	if [ -z $VALUE ] || [ $VALUE == "Error" ]
 	then
-		echo -e "\033[32mOK\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/OK/testcase_OK_wrong_input_test_1
 		((CNT_OK++))
 	elif [ $VALUE == "KO" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_wrong_input_test_1
 		((CNT_KO++))
 	elif [ $VALUE == "OK" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_wrong_input_test_1
 		((CNT_KO++))
 	fi
@@ -811,17 +725,14 @@ then
 	VALUE="$(./push_swap "$ARGS" | ./checker "$ARGS")"
 	if [ -z $VALUE ] || [ $VALUE == "Error" ]
 	then
-		echo -e "\033[32mOK\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/OK/testcase_OK_wrong_input_test_1
 		((CNT_OK++))
 	elif [ $VALUE == "KO" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_wrong_input_test_1
 		((CNT_KO++))
 	elif [ $VALUE == "OK" ]
 	then
-		echo -e "\033[31mKO\033[0m\n"
 		echo "$ARGS" > ./push_swap_tutorial/KO/testcase_KO_wrong_input_test_1
 		((CNT_KO++))
 	fi
