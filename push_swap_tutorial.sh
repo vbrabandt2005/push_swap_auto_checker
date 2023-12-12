@@ -38,7 +38,12 @@ then
 
 	for (( var=1; var<=2000; var++ ))
 	do
-		printf "| %s%%\r" $(( (($var)*100)/(2000)*100/100));
+		let _progress=($var*100/2000*100)/100
+		let _done=(${_progress}*4)/10
+		let _left=40-$_done
+		_fill=$(printf "%${_done}s")
+		_empty=$(printf "%${_left}s")
+		printf "\rProgress : [\033[1;32m${_fill// /█}\033[1;0m${_empty// /-}] ${_progress}%%"
 		ARGS="$(seq 100 | sort -R | xargs)"
 		CMDS="$(echo $(./push_swap "$ARGS") | tr ' ' '\n')"
 		VALUE="$( echo "$CMDS" | ./checker_Mac "$ARGS")"
@@ -70,10 +75,15 @@ then
 	echo -e	"		\n\n\033[1;32mAVG : $AVG\033[1;0m, \033[1;32m	MIN : $MIN  at case_$MIN_IDX\033[1;0m, \033[1;31m	MAX : $MAX  at case_$MAX_IDX"
 	echo
 	echo
-	echo -e "\033[1;37m-------------- [try from 1 stack to 2000 stack] --------------\033[0m"
-	for (( var=1; var<=2000; var++ ))
+	echo -e "\033[1;37m-------------- [try from 1 stack to 1000 stack] --------------\033[0m"
+	for (( var=1; var<=1000; var++ ))
 	do
-		printf "| %s%%\r" $(( (($var)*100)/(2000)*100/100));
+		let _progress=($var*100/1000*100)/100
+		let _done=(${_progress}*4)/10
+		let _left=40-$_done
+		_fill=$(printf "%${_done}s")
+		_empty=$(printf "%${_left}s")
+		printf "\rProgress : [\033[1;32m${_fill// /█}\033[1;0m${_empty// /-}] ${_progress}%%"
 		ARGS="$(seq $var | sort -R | xargs)"
 		VALUE="$(./push_swap "$ARGS" | ./checker_Mac "$ARGS")"
 
@@ -440,11 +450,16 @@ then
 	mkdir push_swap_tutorial/OK
 	mkdir push_swap_tutorial/Error
 
-	echo -e "\033[1;37m---BONUS------ [try from 1 stack to 2000 stack] ------BONUS---\033[0m"
+	echo -e "\033[1;37m---BONUS------ [try from 1 stack to 1000 stack] ------BONUS---\033[0m"
 
-	for (( var=1; var<=2000; var++ ))
+	for (( var=1; var<=1000; var++ ))
 	do
-		printf "| %s%%\r" $(( (($var)*100)/(2000)*100/100));
+		let _progress=($var*100/1000*100)/100
+		let _done=(${_progress}*4)/10
+		let _left=40-$_done
+		_fill=$(printf "%${_done}s")
+		_empty=$(printf "%${_left}s")
+		printf "\rProgress : [\033[1;32m${_fill// /█}\033[1;0m${_empty// /-}] ${_progress}%%"
 		ARGS="$(seq $var | sort -R | xargs)"
 		VALUE="$(./push_swap "$ARGS" | ./checker "$ARGS")"
 
