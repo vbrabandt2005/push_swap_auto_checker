@@ -65,8 +65,8 @@ then
 		elif [ $VALUE == "OK" ]
 		then
 			((TOTAL = $TOTAL + $COUNT))
-			[ $MAX -ge $COUNT ] && MAX=$MAX || echo $ARGS > ./push_swap_tutorial/OK/testcase_MAX
-			[ $COUNT -ge $MIN ] && MIN=$MIN || echo $ARGS > ./push_swap_tutorial/OK/testcase_MIN
+			[ $MAX -ge $COUNT ] && MAX=$MAX || echo $ARGS > ./push_swap_tutorial/OK/testcase_100_MAX
+			[ $COUNT -ge $MIN ] && MIN=$MIN || echo $ARGS > ./push_swap_tutorial/OK/testcase_100_MIN
 			[ $MAX -ge $COUNT ] && MAX=$MAX || MAX_IDX=$var
 			[ $COUNT -ge $MIN ] && MIN=$MIN || MIN_IDX=$var
 			[ $MAX -ge $COUNT ] && MAX=$MAX || MAX=$COUNT
@@ -74,6 +74,57 @@ then
 		fi
 	done
 	AVG=$(expr $TOTAL / 2000)
+	echo -e	"		\n\n\033[1;32mAVG : $AVG\033[1;0m, \033[1;32m	MIN : $MIN  at case_$MIN_IDX\033[1;0m, \033[1;31m	MAX : $MAX  at case_$MAX_IDX"
+	echo
+	echo
+	echo -e "\033[1;37m---------------- [try 500 stack - 500 times] ----------------\033[0m"
+
+	TOTAL=0
+	MAX=0
+	MIN=999999999
+	MIN_IDX=0
+	MAX_IDX=0
+
+	CNT_KO=0
+	CNT_Error=0
+	CNT_OK=0
+
+	for (( var=1; var<=500; var++ ))
+	do
+		let _progress=($var*100/500*100)/100
+		let _done=(${_progress}*4)/10
+		let _left=40-$_done
+		_fill=$(printf "%${_done}s")
+		_empty=$(printf "%${_left}s")
+		printf "\rProgress : [\033[1;32m${_fill// /█}\033[1;0m${_empty// /-}] ${_progress}%%"
+		ARGS="$(seq 500 | sort -R | xargs)"
+		CMDS="$(echo $(./push_swap "$ARGS") | tr ' ' '\n')"
+		VALUE="$( echo "$CMDS" | ./checker_Mac "$ARGS")"
+		COUNT="$( echo "$CMDS" | wc -l)"
+
+		if [ -z $VALUE ] || [ $VALUE == "Error" ]
+		then
+			echo $ARGS > ./push_swap_tutorial/Error/testcase_Error_$NUM\_$var
+			((TOTAL = $TOTAL + $COUNT))
+			[ $MAX -ge $COUNT ] && MAX=$MAX || MAX_IDX=$var
+			[ $COUNT -ge $MIN ] && MIN=$MIN || MIN_IDX=$var
+			[ $MAX -ge $COUNT ] && MAX=$MAX || MAX=$COUNT
+			[ $COUNT -ge $MIN ] && MIN=$MIN || MIN=$COUNT
+		elif [ $VALUE == "KO" ]
+		then
+			echo $ARGS > ./push_swap_tutorial/KO/testcase_KO_$var
+		elif [ $VALUE == "OK" ]
+		then
+			((TOTAL = $TOTAL + $COUNT))
+			[ $MAX -ge $COUNT ] && MAX=$MAX || echo $ARGS > ./push_swap_tutorial/OK/testcase_500_MAX
+			[ $COUNT -ge $MIN ] && MIN=$MIN || echo $ARGS > ./push_swap_tutorial/OK/testcase_500_MIN
+			[ $MAX -ge $COUNT ] && MAX=$MAX || MAX_IDX=$var
+			[ $COUNT -ge $MIN ] && MIN=$MIN || MIN_IDX=$var
+			[ $MAX -ge $COUNT ] && MAX=$MAX || MAX=$COUNT
+			[ $COUNT -ge $MIN ] && MIN=$MIN || MIN=$COUNT
+		fi
+	done
+	AVG=$(expr $TOTAL / 500)
 	echo -e	"		\n\n\033[1;32mAVG : $AVG\033[1;0m, \033[1;32m	MIN : $MIN  at case_$MIN_IDX\033[1;0m, \033[1;31m	MAX : $MAX  at case_$MAX_IDX"
 	echo
 	echo
