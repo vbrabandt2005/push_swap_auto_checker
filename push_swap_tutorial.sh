@@ -533,6 +533,234 @@ then
 		echo -e "		\033[42;1;37mYOUR PUSH_SWAP CMD IS PERFECT\033[0m\n\n"
 		((CNT_OK++))
 	fi
+
+	echo
+	echo -e "\033[1;37m---BONUS--------------- [check funcs 2] --------------BONUS---\033[0m\n"
+
+	CNT_KO=0
+	CNT_Error=0
+	CNT_OK=0
+
+	VALUE="$( echo -e "sbb" | ./checker "1" )"
+
+	if [ -z $VALUE ] || [ $VALUE == "Error" ]
+	then
+		((CNT_Error++))
+	elif [ $VALUE == "KO" ]
+	then
+		((CNT_KO++))
+	elif [ $VALUE == "OK" ]
+	then
+		((CNT_OK++))
+	fi
+
+	VALUE="$( echo -e "rbb" | ./checker "1" )"
+
+	if [ -z $VALUE ] || [ $VALUE == "Error" ]
+	then
+		((CNT_Error++))
+	elif [ $VALUE == "KO" ]
+	then
+		((CNT_KO++))
+	elif [ $VALUE == "OK" ]
+	then
+		((CNT_OK++))
+	fi
+
+	VALUE="$( echo -e "rrbb" | ./checker "1" )"
+
+	if [ -z $VALUE ] || [ $VALUE == "Error" ]
+	then
+		((CNT_Error++))
+	elif [ $VALUE == "KO" ]
+	then
+		((CNT_KO++))
+	elif [ $VALUE == "OK" ]
+	then
+		((CNT_OK++))
+	fi
+
+	VALUE="$( echo -e "paa" | ./checker "1" )"
+
+	if [ -z $VALUE ] || [ $VALUE == "Error" ]
+	then
+		((CNT_Error++))
+	elif [ $VALUE == "KO" ]
+	then
+		((CNT_KO++))
+	elif [ $VALUE == "OK" ]
+	then
+		((CNT_OK++))
+	fi
+
+	VALUE="$( echo -e "\n" | ./checker "2 1" )"
+
+	if [ -z $VALUE ] || [ $VALUE == "Error" ]
+	then
+		((CNT_Error++))
+	elif [ $VALUE == "KO" ]
+	then
+		((CNT_KO++))
+	elif [ $VALUE == "OK" ]
+	then
+		((CNT_OK++))
+	fi
+
+	VALUE="$( echo -e "sss" | ./checker "1" )"
+
+	if [ -z $VALUE ] || [ $VALUE == "Error" ]
+	then
+		((CNT_Error++))
+	elif [ $VALUE == "KO" ]
+	then
+		((CNT_KO++))
+	elif [ $VALUE == "OK" ]
+	then
+		((CNT_OK++))
+	fi
+
+	VALUE="$( echo -e "rrrr\n" | ./checker "1" )"
+
+	if [ -z $VALUE ] || [ $VALUE == "Error" ]
+	then
+		((CNT_Error++))
+	elif [ $VALUE == "KO" ]
+	then
+		((CNT_KO++))
+	elif [ $VALUE == "OK" ]
+	then
+		((CNT_OK++))
+	fi
+
+	VALUE="$( echo -e "pbb" | ./checker "1" )"
+
+	if [ -z $VALUE ] || [ $VALUE == "Error" ]
+	then
+		((CNT_Error++))
+	elif [ $VALUE == "KO" ]
+	then
+		((CNT_KO++))
+	elif [ $VALUE == "OK" ]
+	then
+		((CNT_OK++))
+	fi
+
+	VALUE="$( echo -e "saa" | ./checker "1" )"
+
+	if [ -z $VALUE ] || [ $VALUE == "Error" ]
+	then
+		((CNT_Error++))
+	elif [ $VALUE == "KO" ]
+	then
+		((CNT_KO++))
+	elif [ $VALUE == "OK" ]
+	then
+		((CNT_OK++))
+	fi
+
+	VALUE="$( echo -e "raa" | ./checker "1" )"
+
+	if [ -z $VALUE ] || [ $VALUE == "Error" ]
+	then
+		((CNT_Error++))
+	elif [ $VALUE == "KO" ]
+	then
+		((CNT_KO++))
+	elif [ $VALUE == "OK" ]
+	then
+		((CNT_OK++))
+	fi
+
+	VALUE="$( echo -e "rraa" | ./checker "1" )"
+
+	if [ -z $VALUE ] || [ $VALUE == "Error" ]
+	then
+		((CNT_Error++))
+	elif [ $VALUE == "KO" ]
+	then
+		((CNT_KO++))
+	elif [ $VALUE == "OK" ]
+	then
+		((CNT_OK++))
+	fi
+
+	VALUE="$( echo -e "pbb" | ./checker "1" )"
+
+	if [ -z $VALUE ] || [ $VALUE == "Error" ]
+	then
+		((CNT_Error++))
+	elif [ $VALUE == "KO" ]
+	then
+		((CNT_KO++))
+	elif [ $VALUE == "OK" ]
+	then
+		((CNT_OK++))
+	fi
+
+	VALUE="$( echo -e "rrrr" | ./checker "1" )"
+
+	if [ -z $VALUE ] || [ $VALUE == "Error" ]
+	then
+		((CNT_Error++))
+	elif [ $VALUE == "KO" ]
+	then
+		((CNT_KO++))
+	elif [ $VALUE == "OK" ]
+	then
+		((CNT_OK++))
+	fi
+
+	VALUE="$( echo -e "sss" | ./checker "1" )"
+
+	if [ -z $VALUE ] || [ $VALUE == "Error" ]
+	then
+		((CNT_Error++))
+	elif [ $VALUE == "KO" ]
+	then
+		((CNT_KO++))
+	elif [ $VALUE == "OK" ]
+	then
+		((CNT_OK++))
+	fi
+
+	VALUE="$( echo -e "rrrr" | ./checker "1" )"
+
+	if [ -z $VALUE ] || [ $VALUE == "Error" ]
+	then
+		((CNT_Error++))
+	elif [ $VALUE == "KO" ]
+	then
+		((CNT_KO++))
+	elif [ $VALUE == "OK" ]
+	then
+		((CNT_OK++))
+	fi
+
+	VALUE="$( echo -e "paa" | ./checker "1" )"
+
+	if [ -z $VALUE ] || [ $VALUE == "Error" ]
+	then
+		((CNT_Error++))
+	elif [ $VALUE == "KO" ]
+	then
+		((CNT_KO++))
+	elif [ $VALUE == "OK" ]
+	then
+		((CNT_OK++))
+	fi
+
+	echo -e	"		\n\n\033[1;31mOK : $CNT_OK\033[1;0m, \033[1;31m	KO : $CNT_KO\033[1;0m, \033[1;32m	Error : $CNT_Error"
+	echo
+	echo
+	echo -e "	\033[42;1;37mError MEANS PERFECT, OK and KO IS WRONG\033[0m"
+	echo
+
+	if [ $CNT_KO -gt 0 ] || [ $CNT_OK -gt 0 ]
+	then
+		echo -e "		\033[41;1;37mYOUR PUSH_SWAP CMD CHECK IS WRONG\033[0m\n\n"
+	else
+		echo -e "		\033[42;1;37mYOUR PUSH_SWAP CMD IS PERFECT\033[0m\n\n"
+	fi
 	
 	echo -e "\033[1;37m-------------- [chk range - (MAX/MIN INTEGER)] ---------------\033[0m\n"
 
@@ -793,6 +1021,7 @@ then
 	echo
 	echo -e "		\033[42;1;37mlog files : ./push_swap_tutorial/\033[0m\n\n--------------------------------------------------------------\n\n"
 	echo
+	
 elif [ $MODE == 3 ]
 then
 	rm -rf ./push_swap_tutorial
