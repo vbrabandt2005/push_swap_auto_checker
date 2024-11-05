@@ -17,8 +17,17 @@ then
 
 	norminette
 
-	curl -O https://cdn.intra.42.fr/document/document/28458/checker_Mac
-	chmod 755 checker_Mac
+	OS_TYPE=$(uname)
+
+	if [[ "$OS_TYPE" == "Darwin" ]]; then
+		curl -O https://cdn.intra.42.fr/document/document/28458/checker_Mac
+		name="checker_Mac"
+	else
+		curl -O https://cdn.intra.42.fr/document/document/28459/checker_linux
+		name="checker_linux"
+	fi
+	mv ./${name} ./checker_project
+	chmod 755 checker_project
 
 	TOTAL=0
 	MAX=0
@@ -48,7 +57,7 @@ then
 		printf "\rProgress : [\033[1;32m${_fill// /█}\033[1;0m${_empty// /-}] ${_progress}%%"
 		ARGS="$(seq 100 | sort -R | xargs)"
 		CMDS="$(echo $(./push_swap "$ARGS") | tr ' ' '\n')"
-		VALUE="$( echo "$CMDS" | ./checker_Mac "$ARGS")"
+		VALUE="$( echo "$CMDS" | ./checker_project "$ARGS")"
 		COUNT="$( echo "$CMDS" | wc -l)"
 
 		if [ -z $VALUE ] || [ $VALUE == "Error" ]
@@ -99,7 +108,7 @@ then
 		printf "\rProgress : [\033[1;32m${_fill// /█}\033[1;0m${_empty// /-}] ${_progress}%%"
 		ARGS="$(seq 500 | sort -R | xargs)"
 		CMDS="$(echo $(./push_swap "$ARGS") | tr ' ' '\n')"
-		VALUE="$( echo "$CMDS" | ./checker_Mac "$ARGS")"
+		VALUE="$( echo "$CMDS" | ./checker_project "$ARGS")"
 		COUNT="$( echo "$CMDS" | wc -l)"
 
 		if [ -z $VALUE ] || [ $VALUE == "Error" ]
@@ -138,7 +147,7 @@ then
 		_empty=$(printf "%${_left}s")
 		printf "\rProgress : [\033[1;32m${_fill// /█}\033[1;0m${_empty// /-}] ${_progress}%%"
 		ARGS="$(seq $var | sort -R | xargs)"
-		VALUE="$(./push_swap "$ARGS" | ./checker_Mac "$ARGS")"
+		VALUE="$(./push_swap "$ARGS" | ./checker_project "$ARGS")"
 
 		if [ -z $VALUE ] || [ $VALUE == "Error" ]
 		then
@@ -163,7 +172,7 @@ then
 	CNT_OK=0
 
 	ARGS="$(seq "-100" "100" | sort -R | xargs)"
-	VALUE="$(./push_swap "$ARGS" | ./checker_Mac "$ARGS")"
+	VALUE="$(./push_swap "$ARGS" | ./checker_project "$ARGS")"
 	
 	if [ -z $VALUE ] || [ $VALUE == "Error" ]
 	then
@@ -187,7 +196,7 @@ then
 	CNT_OK=0
 
 	ARGS="1 2 3 4 2147483648"
-	VALUE="$(./push_swap "$ARGS" | ./checker_Mac "$ARGS")"
+	VALUE="$(./push_swap "$ARGS" | ./checker_project "$ARGS")"
 	if [ -z $VALUE ] || [ $VALUE == "Error" ]
 	then
 		echo "$ARGS" > ./push_swap_tutorial/OK/testcase_OK_BAD_MAX_INT_TEST
@@ -203,7 +212,7 @@ then
 	fi
 
 	ARGS="-2147483649 1 2 3 4"
-	VALUE="$(./push_swap "$ARGS" | ./checker_Mac "$ARGS")"
+	VALUE="$(./push_swap "$ARGS" | ./checker_project "$ARGS")"
 	if [ -z $VALUE ] || [ $VALUE == "Error" ]
 	then
 		echo "$ARGS" > ./push_swap_tutorial/OK/testcase_OK_BAD_MIN_INT_TEST
@@ -219,7 +228,7 @@ then
 	fi
 
 	ARGS="2147483647 1 2 3 4"
-	VALUE="$(./push_swap "$ARGS" | ./checker_Mac "$ARGS")"
+	VALUE="$(./push_swap "$ARGS" | ./checker_project "$ARGS")"
 	if [ -z $VALUE ] || [ $VALUE == "Error" ]
 	then
 		echo "$ARGS" > ./push_swap_tutorial/Error/testcase_Error_FINE_MAX_INT_TEST
@@ -235,7 +244,7 @@ then
 	fi
 
 	ARGS="1 2 3 4 -2147483648"
-	VALUE="$(./push_swap "$ARGS" | ./checker_Mac "$ARGS")"
+	VALUE="$(./push_swap "$ARGS" | ./checker_project "$ARGS")"
 	if [ -z $VALUE ] || [ $VALUE == "Error" ]
 	then
 		echo "$ARGS" > ./push_swap_tutorial/Error/testcase_Error_FINE_MIN_INT_TEST
@@ -259,7 +268,7 @@ then
 	CNT_OK=0
 
 	ARGS="1 25 \"3\" 4 \"\" 7"
-	VALUE="$(./push_swap "$ARGS" | ./checker_Mac "$ARGS")"
+	VALUE="$(./push_swap "$ARGS" | ./checker_project "$ARGS")"
 	if [ -z $VALUE ] || [ $VALUE == "Error" ]
 	then
 		echo "$ARGS" > ./push_swap_tutorial/OK/testcase_OK_wrong_input_test_1
@@ -275,7 +284,7 @@ then
 	fi
 
 	ARGS="1 1"
-	VALUE="$(./push_swap "$ARGS" | ./checker_Mac "$ARGS")"
+	VALUE="$(./push_swap "$ARGS" | ./checker_project "$ARGS")"
 	if [ -z $VALUE ] || [ $VALUE == "Error" ]
 	then
 		echo "$ARGS" > ./push_swap_tutorial/OK/testcase_OK_wrong_input_test_1
@@ -291,7 +300,7 @@ then
 	fi
 
 	ARGS="1 2 1"
-	VALUE="$(./push_swap "$ARGS" | ./checker_Mac "$ARGS")"
+	VALUE="$(./push_swap "$ARGS" | ./checker_project "$ARGS")"
 	if [ -z $VALUE ] || [ $VALUE == "Error" ]
 	then
 		echo "$ARGS" > ./push_swap_tutorial/OK/testcase_OK_wrong_input_test_1
@@ -307,7 +316,7 @@ then
 	fi
 
 	ARGS="1 3 5 2 4 3 7"
-	VALUE="$(./push_swap "$ARGS" | ./checker_Mac "$ARGS")"
+	VALUE="$(./push_swap "$ARGS" | ./checker_project "$ARGS")"
 	if [ -z $VALUE ] || [ $VALUE == "Error" ]
 	then
 		echo "$ARGS" > ./push_swap_tutorial/OK/testcase_OK_wrong_input_test_1
@@ -323,7 +332,7 @@ then
 	fi
 
 	ARGS="1 2 4 5 6 3 \"13 4\""
-	VALUE="$(./push_swap "$ARGS" | ./checker_Mac "$ARGS")"
+	VALUE="$(./push_swap "$ARGS" | ./checker_project "$ARGS")"
 	if [ -z $VALUE ] || [ $VALUE == "Error" ]
 	then
 		echo "$ARGS" > ./push_swap_tutorial/OK/testcase_OK_wrong_input_test_1
@@ -339,7 +348,7 @@ then
 	fi
 
 	ARGS="12 1345 4562 1 31a 346"
-	VALUE="$(./push_swap "$ARGS" | ./checker_Mac "$ARGS")"
+	VALUE="$(./push_swap "$ARGS" | ./checker_project "$ARGS")"
 	if [ -z $VALUE ] || [ $VALUE == "Error" ]
 	then
 		echo "$ARGS" > ./push_swap_tutorial/OK/testcase_OK_wrong_input_test_1
@@ -355,7 +364,7 @@ then
 	fi
 
 	ARGS="5 123 56 3 b"
-	VALUE="$(./push_swap "$ARGS" | ./checker_Mac "$ARGS")"
+	VALUE="$(./push_swap "$ARGS" | ./checker_project "$ARGS")"
 	if [ -z $VALUE ] || [ $VALUE == "Error" ]
 	then
 		echo "$ARGS" > ./push_swap_tutorial/OK/testcase_OK_wrong_input_test_1
@@ -371,7 +380,7 @@ then
 	fi
 
 	ARGS="a 3 4 5 6"
-	VALUE="$(./push_swap "$ARGS" | ./checker_Mac "$ARGS")"
+	VALUE="$(./push_swap "$ARGS" | ./checker_project "$ARGS")"
 	if [ -z $VALUE ] || [ $VALUE == "Error" ]
 	then
 		echo "$ARGS" > ./push_swap_tutorial/OK/testcase_OK_wrong_input_test_1
@@ -387,7 +396,7 @@ then
 	fi
 
 	ARGS="999999999999999999"
-	VALUE="$(./push_swap "$ARGS" | ./checker_Mac "$ARGS")"
+	VALUE="$(./push_swap "$ARGS" | ./checker_project "$ARGS")"
 	if [ -z $VALUE ] || [ $VALUE == "Error" ]
 	then
 		echo "$ARGS" > ./push_swap_tutorial/OK/testcase_OK_wrong_input_test_1
@@ -403,7 +412,7 @@ then
 	fi
 
 	ARGS="#1 2"
-	VALUE="$(./push_swap "$ARGS" | ./checker_Mac "$ARGS")"
+	VALUE="$(./push_swap "$ARGS" | ./checker_project "$ARGS")"
 	if [ -z $VALUE ] || [ $VALUE == "Error" ]
 	then
 		echo "$ARGS" > ./push_swap_tutorial/OK/testcase_OK_wrong_input_test_1
@@ -419,7 +428,7 @@ then
 	fi
 
 	ARGS="1# 3"
-	VALUE="$(./push_swap "$ARGS" | ./checker_Mac "$ARGS")"
+	VALUE="$(./push_swap "$ARGS" | ./checker_project "$ARGS")"
 	if [ -z $VALUE ] || [ $VALUE == "Error" ]
 	then
 		echo "$ARGS" > ./push_swap_tutorial/OK/testcase_OK_wrong_input_test_1
@@ -1025,7 +1034,7 @@ then
 elif [ $MODE == 3 ]
 then
 	rm -rf ./push_swap_tutorial
-	rm -f checker_Mac	
+	rm -f checker_project	
 	make fclean
 else
 	echo
