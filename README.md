@@ -29,7 +29,7 @@ This is a simple to use checker for Push_Swap written in Shell.
    ./push_swap_auto_checker.sh
     ```
 
-## Screenshots
+## Screenshot
 
 ![Push_Swap_Auto_Checker-2](screenshots/image.png)
 
