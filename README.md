@@ -1,6 +1,6 @@
 # Push_Swap_Auto_Checker
 
-!![Push_Swap_Auto_Checker](screenshots/Push_Swap_Auto_Checker.png)
+![Push_Swap_Auto_Checker](screenshots/Push_Swap_Auto_Checker.png)
 
 This is a simple to use checker for Push_Swap written in Shell.
 
@@ -28,6 +28,10 @@ This is a simple to use checker for Push_Swap written in Shell.
     ```bash
    ./push_swap_auto_checker.sh
     ```
+
+## Screenshots
+
+![Push_Swap_Auto_Checker-2](screenshots/image.png)
 
 ## Credits
 
